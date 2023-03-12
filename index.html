@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Detection</title>
+  </head>
+  <body>
+    <pre><h1>                                       Face detection</h1></pre>
+    <img src="{{url_for('video_feed')}}" alt="" />
+    <button onclick="releaseCam()">Stop</button>
+    <button onclick="openCam()">start</button>
+  </body>
+
+  <script>
+    function releaseCam() {
+      fetch("{{ url_for('stop_button') }}")
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+    function openCam() {
+      fetch("{{ url_for('video_feed') }}")
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+  </script>
+</html>
